@@ -6,4 +6,4 @@ export type CryptoCoin = {
   favorite: boolean;
 };
 
-export type CryptoBlock = Array<CryptoCoin> | Array<null>;
+export type CryptoBlock = Array<CryptoCoin>;

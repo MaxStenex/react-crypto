@@ -1,10 +1,37 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { CryptoCoin } from '../../types';
+import instance, { key } from '../../api';
+import { setCryptos } from '../../ducks/trackerBlock';
+import { CryptoBlock, CryptoCoin } from '../../types';
 import CoinRow from './CoinRow';
 import './TrackerBlock.scss';
 
-const TrackerBlock: React.FC = ({ trackerBlock }: any) => {
+const TrackerBlock: React.FC = ({ trackerBlock, setCryptos }: any) => {
+  const [currentCurrency, setCurrentCurrency] = React.useState('USD');
+  const fetchtCryptos = () => {
+    instance
+      .get(
+        `currencies/ticker?key=${key}&ids=BTC,ETH,XRP,LTC,EOS,BCH&interval=1d&convert=${currentCurrency}`
+      )
+      .then((response) => {
+        const currencies: CryptoBlock = response.data.map((currency: any) => {
+          return {
+            name: currency.name,
+            photoURL: currency.logo_url,
+            price: parseInt(currency.price),
+            rank: parseInt(currency.rank),
+            favorite: false,
+          };
+        });
+        setCryptos(currencies);
+      });
+  };
+  React.useEffect(() => {
+    fetchtCryptos();
+    const interval = setInterval(fetchtCryptos, 1000 * 60 * 5);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className='crypto-tracking'>
       <div className='container'>
@@ -31,4 +58,4 @@ const mapStateToProps = ({ trackerBlock }: any) => {
   };
 };
 
-export default connect(mapStateToProps, null)(TrackerBlock);
+export default connect(mapStateToProps, { setCryptos })(TrackerBlock);
