@@ -2,13 +2,12 @@ body {
   background-image: url(./assets/bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 100vh;
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
 }
 
 .app-wrapper {
-  padding-top: 150px;
+  padding: 150px 0px 100px 0px;
 }
 
 .bg-wrapper {

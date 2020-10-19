@@ -48,5 +48,24 @@
         background-color: inherit;
       }
     }
+    &--price-head {
+      display: flex;
+      justify-content: center;
+      & span {
+        margin-right: 7px;
+      }
+    }
+  }
+}
+
+.star {
+  width: 35px;
+  height: 35px;
+  transition: 0.2s;
+  &:hover {
+    fill: #fcac6f;
+  }
+  &--favorite {
+    fill: #ff0707;
   }
 }
