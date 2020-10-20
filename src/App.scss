@@ -5,10 +5,16 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   word-break: break-all;
+  @media (max-width: 670px) {
+    font-size: 16px;
+  }
 }
 
 .app-wrapper {
   padding: 150px 0px 100px 0px;
+  @media (max-width: 670px) {
+    padding: 50px 0px 30px 0px;
+  }
 }
 
 .bg-wrapper {
@@ -27,6 +33,11 @@ body {
   color: #000;
   font-weight: 700;
   letter-spacing: 1px;
+  @media (max-width: 670px) {
+    word-wrap: break-word;
+    word-break: break-all;
+    margin-right: 5px;
+  }
 }
 
 .navigate-btn {
@@ -43,5 +54,9 @@ body {
     background-color: #fff;
     color: #f79825;
     border: 2px solid #f79825;
+  }
+  @media (max-width: 670px) {
+    padding: 2px;
+    font-size: 16px;
   }
 }

@@ -18,6 +18,10 @@
     background-color: #efedd5;
     display: flex;
     padding: 50px;
+    @media (max-width: 670px) {
+      flex-direction: column;
+      padding: 25px;
+    }
   }
 
   &__select-block {
@@ -37,6 +41,10 @@
     & select {
       background-color: #f7a92c;
       padding: 3px;
+    }
+    @media (max-width: 670px) {
+      margin-right: 0;
+      margin-bottom: 15px;
     }
   }
 
