@@ -4,13 +4,14 @@
     border-radius: 5px;
   }
 
-  &__title {
-    font-size: 23px;
-    color: #000;
-    font-weight: 700;
-    margin-bottom: 10px;
+  &__head-wrapper {
+    display: flex;
+    align-items: center;
     padding: 10px 15px;
-    letter-spacing: 1px;
+  }
+
+  &__title {
+    flex: 1;
   }
 
   &__header {
@@ -62,6 +63,7 @@
   width: 35px;
   height: 35px;
   transition: 0.2s;
+  cursor: pointer;
   &:hover {
     fill: #fcac6f;
   }

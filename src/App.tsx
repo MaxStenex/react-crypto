@@ -1,5 +1,7 @@
 import React from 'react';
+import { Route, Switch } from 'react-router';
 import './App.scss';
+import ConverterBlock from './components/ConverterBlock/ConverterBlock';
 import TrackerBlock from './components/TrackerBlock/TrackerBlock';
 import './normalize.scss';
 
@@ -8,7 +10,10 @@ const App: React.FC = () => {
     <div className='bg-wrapper'>
       <div className='app-wrapper'>
         <main>
-          <TrackerBlock />
+          <Switch>
+            <Route exact path='/' component={TrackerBlock} />
+            <Route path='/convert' component={ConverterBlock} />
+          </Switch>
         </main>
       </div>
     </div>

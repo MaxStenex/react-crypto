@@ -6,13 +6,14 @@ import { CryptoBlock, CryptoCoin } from '../../types';
 import CoinRow from './CoinRow';
 import './TrackerBlock.scss';
 import { RootState } from '../../store';
+import { Link } from 'react-router-dom';
 
 const TrackerBlock: React.FC<RootState> = ({
   trackerBlock,
   setCryptos,
   favoriteCoins,
 }: any) => {
-  const [currentCurrency, setCurrentCurrency] = React.useState('USD');
+  const [currentCurrency, setCurrentCurrency] = React.useState<string>('USD');
   const fetchtCryptos = () => {
     instance
       .get(
@@ -35,7 +36,7 @@ const TrackerBlock: React.FC<RootState> = ({
   };
   React.useEffect(() => {
     fetchtCryptos();
-    const interval = setInterval(fetchtCryptos, 1000 * 60 * 5);
+    const interval = setInterval(fetchtCryptos, 1000 * 60 * 2);
     return () => clearInterval(interval);
   }, [currentCurrency]);
   const selectCurrencyType = (evt: React.ChangeEvent<HTMLSelectElement>) => {
@@ -46,7 +47,15 @@ const TrackerBlock: React.FC<RootState> = ({
     <section className='crypto-tracking'>
       <div className='container'>
         <div className='crypto-tracking__wrapper'>
-          <h2 className='crypto-tracking__title'>Cryptocurrency rate</h2>
+          <div className='crypto-tracking__head-wrapper'>
+            <h2 className='crypto-tracking__title head-title'>
+              Cryptocurrency rate
+            </h2>
+            <Link className='navigate-btn' to='/convert'>
+              Converter
+            </Link>
+          </div>
+
           <div className='crypto-tracking__header crypto-tracking__row'>
             <div className='crypto-tracking__column'>Currency</div>
             <div className='crypto-tracking__column crypto-tracking__column--price-head'>
