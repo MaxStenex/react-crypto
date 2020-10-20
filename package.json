@@ -2,7 +2,7 @@
   "name": "react-crypto",
   "version": "0.1.0",
   "private": true,
-  "home": "https://maxstenex.github.io/react-crypto/",
+  "home": "https://maxstenex.github.io/react-crypto",
   "dependencies": {
     "@reduxjs/toolkit": "^1.4.0",
     "@testing-library/jest-dom": "^4.2.4",
